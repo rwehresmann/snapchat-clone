@@ -14,6 +14,6 @@ export const appSlice = createSlice({
 
 export const { incrementByAmount } = appSlice.actions;
 
-export const selectApp = state => state.counter.value;
+export const selectApp = state => state.app.value;
 
 export default appSlice.reducer;
