@@ -3,17 +3,29 @@ import { createSlice } from '@reduxjs/toolkit';
 export const appSlice = createSlice({
   name: 'app',
   initialState: {
-    value: 0,
+    user: null,
+    selectImage: null,
   },
   reducers: {
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    login: (state, action) => {
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.user = null;
+    },
+    selectImage: (state, action) => {
+      state.selectImage = action.payload;
+    },
+    resetImage: (state) => {
+      state.selectImage = null;
     },
   },
 });
 
-export const { incrementByAmount } = appSlice.actions;
+export const { login, logout, selectImage, resetImage } = appSlice.actions;
 
-export const selectApp = state => state.app.value;
+export const selecUser = state => state.app.user;
+
+export const selecSelectedImage = state => state.app.selectImage;
 
 export default appSlice.reducer;
