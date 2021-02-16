@@ -6,12 +6,13 @@ import Preview from './Preview';
 import Chats from './Chats';
 import ChatView from './ChatView';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout, selecUser } from './features/appSlice';
+import { login, logout, selectUser } from './features/appSlice';
 import Login from './Login';
 import { auth } from './firebase';
+import logo from './images/snapchat.png';
 
 function App() {
-  const user = useSelector(selecUser);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,22 +35,27 @@ function App() {
         {!user ? (
           <Login/>
         ) : (
-          <div className="app__body">
-            <Switch>
-              <Route path="/chats/view">
-                <ChatView/>
-              </Route>
-              <Route path="/chats">
-                <Chats/>
-              </Route>
-              <Route path="/preview">
-                <Preview/>
-              </Route>
-              <Route exact path="/">
-                <WebcamCapture/>
-              </Route>
-            </Switch>
-          </div>
+          <>
+            <img src={logo} alt="" className="app__logo"/>
+            <div className="app__body">
+              <div className="app__bodyBackground">
+                <Switch>
+                  <Route path="/chats/view">
+                    <ChatView/>
+                  </Route>
+                  <Route path="/chats">
+                    <Chats/>
+                  </Route>
+                  <Route path="/preview">
+                    <Preview/>
+                  </Route>
+                  <Route exact path="/">
+                    <WebcamCapture/>
+                  </Route>
+                </Switch>
+              </div>
+            </div>
+          </>
         )}
       </Router>
 
