@@ -3,11 +3,24 @@ import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
 import SearchIcon from '@material-ui/icons/Search';
 import React, { useEffect, useState } from 'react'
 import './Chats.css'
-import { db } from './firebase';
+import { auth, db } from './firebase';
 import Chat from './Chat';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from './features/appSlice';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import { useHistory } from 'react-router-dom';
+import { resetCameraImage } from './features/cameraSlice';
 
 function Chats() {
   const [posts, setPosts] = useState([]);
+  const user = useSelector(selectUser);
+  const history = useHistory();
+  const disptach = useDispatch();
+
+  const takeSnap = () => {
+    disptach(resetCameraImage())
+    history.push("/");
+  };
 
   // To know more why isMounted is used below, 
   // check https://stackoverflow.com/a/60907638/5261664 
@@ -31,10 +44,14 @@ function Chats() {
   return (
     <div className="chats">
       <div className="chats__header">
-        <Avatar className="chats__avatar" />
+        <Avatar 
+          src={user.profilePic} 
+          className="chats__avatar" 
+          onClick={() => auth.signOut()}
+        />
         
         <div className="chats__search">
-          <SearchIcon />
+          <SearchIcon className="chats__searchIcon"/>
           <input type="text" placeholder="Friends"/>
         </div>
 
@@ -54,6 +71,12 @@ function Chats() {
           />
         ))}
       </div>
+
+      <RadioButtonUncheckedIcon
+        className="chats__takePicIcon"
+        onClick={takeSnap}
+        fontSize="large"
+      />
     </div>
   )
 }

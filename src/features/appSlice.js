@@ -24,7 +24,7 @@ export const appSlice = createSlice({
 
 export const { login, logout, selectImage, resetImage } = appSlice.actions;
 
-export const selecUser = state => state.app.user;
+export const selectUser = state => state.app.user;
 
 export const selecSelectedImage = state => state.app.selectImage;
 

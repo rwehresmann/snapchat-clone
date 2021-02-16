@@ -15,8 +15,10 @@ import SendIcon from '@material-ui/icons/Send';
 import { v4 as uuid } from "uuid";
 import { db, storage } from './firebase';
 import firebase from 'firebase';
+import { selectUser } from './features/appSlice';
 
 function Preview() {
+  const user = useSelector(selectUser);
   const cameraImage = useSelector(selectCameraImage);
   const history = useHistory();
   const disptach = useDispatch();
@@ -36,11 +38,11 @@ function Preview() {
       "state_changed", 
       null, 
       (error) => {
-        // ERROR function
+        // ERROR callback function
         console.log(error);
       },
       () => {
-        // COMPLETE function
+        // COMPLETE callback function
         storage
           .ref("posts")
           .child(id)
@@ -48,9 +50,9 @@ function Preview() {
           .then((url) => {
             db.collection("posts").add({
               imageUrl: url,
-              userName: "Geralt of Rivia",
+              userName: user.userName,
               read: false,
-              //profilePic
+              profilePic: user.profilePic,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
 
