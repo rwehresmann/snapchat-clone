@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Snapchat Clone
 
-## Available Scripts
+<p align="center">
+  <img  src="./app.gif">
+</p>
 
-In the project directory, you can run:
+Snapchat Clone is an implementation of [Snapchat mobile app](https://play.google.com/store/apps/details?id=com.snapchat.android&hl=pt_BR&gl=US). Keep in mind that this clone project isn't an mobile app, but a website that, visually speaking, we make look like an mobile app in the browser. 
 
-### `yarn start`
+The features implemented in this clone are:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  * Social login with Google account, and logout actions;
+  * The flow of (1) send a picture with your webcam, (2) preview the picture, (3) load the feed and (4) click in the pictures to visualize it.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Tools used in the development:
 
-### `yarn test`
+  * React (project created with [create-react-app](https://create-react-app.dev/docs/getting-started/));
+    * [react-webcam package](https://www.npmjs.com/package/react-webcam) 
+  * Redux;
+  * Firebase.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project has study purposes only.
 
-### `yarn build`
+## How to run this app?
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the project folder:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  * Run `npm install`;
+  * Configure you [Firebase](https://firebase.google.com/?hl=pt-br) project, including authentication, stoarge and DB;
+  * Create your `.env` based on `.env.example`, and fill it with your Firebase project settings;
+  * Run `npm start`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to deploy this app?
 
-### `yarn eject`
+The following instructions are a suggestion of how to configure you deploy if you just wanna do that for testing and have an URL to share.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To deploy your app you need to have [Firebase](https://www.npmjs.com/package/firebase) installed.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  * Run `npm run build`;
+  * Login in your Firebase account with `firebase login`;
+  * Run `firebase init`. You should select your project through the options, type to use `build` as your *public directory*, and select to configure as an SPA;
+  * Run `npm deploy`.
