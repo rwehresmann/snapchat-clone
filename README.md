@@ -4,7 +4,7 @@
   <img  src="./app.gif">
 </p>
 
-Snapchat Clone is an implementation of [Snapchat mobile app](https://play.google.com/store/apps/details?id=com.snapchat.android&hl=pt_BR&gl=US). Keep in mind that this clone project isn't an mobile app, but a website that, visually speaking, we make look like an mobile app in the browser. 
+Snapchat Clone is a limited implementation of [Snapchat mobile app](https://play.google.com/store/apps/details?id=com.snapchat.android&hl=pt_BR&gl=US). Keep in mind that this clone project isn't an mobile app, but a website that, visually speaking, we make look like an mobile app in the browser. 
 
 The features implemented in this clone are:
 
@@ -33,7 +33,7 @@ In the project folder:
 
 The following instructions are a suggestion of how to configure you deploy if you just wanna do that for testing and have an URL to share.
 
-To deploy your app you need to have [Firebase](https://www.npmjs.com/package/firebase) installed.
+To deploy your app you need to have [Firebase CLI](https://www.npmjs.com/package/firebase-tools) installed.
 
   * Run `npm run build`;
   * Login in your Firebase account with `firebase login`;
